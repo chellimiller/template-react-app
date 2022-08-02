@@ -18,7 +18,8 @@ const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
+  target: 'web',
   output: {
     // Put output in the `dist/` directory.
     path: path.resolve(__dirname, 'dist'),
@@ -46,9 +47,17 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         // This loader processes JavaScript source code with Babel
         use: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.tsx?$/,
+        // This loader processes TypeScript source code.
+        // Unlike the @babel/plugin-transform-typescript, this does type checking.
+        // This makes it slower, but ensures type safety is provided.
+        loader: 'ts-loader',
         exclude: /node_modules/,
       },
       {
@@ -84,6 +93,9 @@ const config = {
       filename: 'styles.css',
     }),
   ],
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
 };
 
 module.exports = config;
