@@ -1,6 +1,6 @@
-# Simple Web App Template
+# Simple React App Template
 
-Starter web app with HTML, CSS, JavaScript, and development dependencies.
+Starter React app with TypeScript and development dependencies.
 
 This template is ideal for learning projects and simple prototypes:
 
@@ -9,7 +9,7 @@ This template is ideal for learning projects and simple prototypes:
 - Minimal dependencies to reduce complexity and abstractions.
 
 This template is not an ideal starting point for most production web apps.
-To encourage learning and reduce abstractions, common dependencies like TypeScript were left out.
+To encourage learning and reduce abstractions, only essential dependencies were added.
 Many common dependencies are useful for preventing bugs, increasing speed of development,
 reducing maintenance requirements, and improving readability.
 
@@ -72,7 +72,7 @@ Before getting started, you will need [Git] and [Node.js].
 You are now ready to start coding!
 
 [babel]: https://babeljs.io/
-[generate]: https://github.com/utori-dev/template-vanilla-web-app/generate
+[generate]: https://github.com/utori-dev/template-react-app/generate
 [git]: https://git-scm.com/
 [github_docs_git]: https://docs.github.com/en/get-started/quickstart/set-up-git
 [node.js]: https://nodejs.org/
