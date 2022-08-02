@@ -12,7 +12,7 @@ describe('registerServiceWorker', () => {
 
   it('should not throw error if browser does not support service workers', async () => {
     // Arrange
-    window.navigator = {};
+    window.navigator = {} as any;
 
     // Act
     await registerServiceWorker();
@@ -26,7 +26,7 @@ describe('registerServiceWorker', () => {
       serviceWorker: {
         register: jest.fn().mockImplementation(() => Promise.resolve({})),
       },
-    };
+    } as any;
 
     // Act
     await registerServiceWorker();
@@ -46,7 +46,7 @@ describe('registerServiceWorker', () => {
       serviceWorker: {
         register: jest.fn().mockImplementation(() => Promise.reject('Foo')),
       },
-    };
+    } as any;
 
     // Act
     await registerServiceWorker();

@@ -18,6 +18,8 @@ const config = {
   // Specify that code coverage should be collected.
   // Code coverage shows how many lines, functions, and branches are covered by tests.
   collectCoverage: true,
+  collectCoverageFrom: ['**/*.{ts,tsx}', '!**/dist/**'],
+  coveragePathIgnorePatterns: ['/node_modules/', 'index'],
   coverageThreshold: {
     // Specifies all global coverage at 100%
     // Though code coverage doesn't guarantee that every case is tested,
@@ -32,8 +34,12 @@ const config = {
     },
   },
   transform: {
-    // Specify that all JS files should be transformed with Babel.
-    '^.+\\.js$': 'babel-jest',
+    // Specify that all JS files should be transformed with @swc/jest.
+    // The Speedy Web Compiler is not as mature as Babel,
+    //  but it's very simple and requires little configuration to get working.
+    // Because of this, it is often a great choice for transforming test files.
+    // Eventually, this project may be updated to use SWC for everything.
+    '^.+\\.(t|j)sx?$': '@swc/jest',
     // Specify that CSS files should be stubbed.
     '.+\\.css$': 'jest-transform-stub',
   },
